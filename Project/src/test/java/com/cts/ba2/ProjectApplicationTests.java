@@ -41,6 +41,36 @@ public class ProjectApplicationTests {
 	}
 	
 	
+	
+	
+	//Working
+	@Test
+	public void saveProjectToDBTest() throws Exception
+	{
+		Project project=new Project(202015l,"html","adobe");
+        when(projectRepository.save(project)).thenReturn(project);
+		
+	}
+	
+	
+	
+	//Working
+		@Test
+		public void fetchProjectByIdTest() 
+		{   
+			Project project=new Project(202015l,"html","adobe");
+	        when(projectRepository.findById(project.getProjectId())).thenReturn(Optional.of(project)).getMock();
+		}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//working for delete
 	
 	@Test
