@@ -72,17 +72,16 @@ public class ProjectApplicationTests {
 	
 	
 	//working for delete
-	
-	@Test
-	public void deleteProjectByIdTest()
-	{
-		Project project=new Project(20202l,"sap","cisco");
-		projectService.deleteProject(project.getProjectId());
-		verify(projectRepository,times(1)).deleteById(20202l);
-	}
-	
-	
-	
+	//working for delete
+//	
+//	@Test
+//	public void deleteProjectByIdTest()
+//	{
+//		Project project=new Project(20202l,"sap","cisco");
+//		projectService.deleteProject(project.getProjectId());
+//		verify(projectRepository,times(1)).deleteById(20202l);
+//	}
+//	
 	
 }
 
