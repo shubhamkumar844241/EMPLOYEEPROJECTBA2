@@ -41,6 +41,28 @@ public class EmployeeApplicationTests {
 	
 	
 	
+	
+	@Test
+	public void saveEmployeeToDBTest() throws Exception
+	{
+		Employee employee=new Employee(112l,"rajput","delhi",10000,20207l);
+        when(employeeRepository.save(employee)).thenReturn(employee);
+		
+	}
+	
+	
+	
+	//Working
+		@Test
+		public void fetchEmployeeByIdTest() 
+		{   
+			Employee employee=new Employee(115l,"srk","mumbai",100000,20209l);
+	        when(employeeRepository.findById(employee.getEmployeeId())).thenReturn(Optional.of(employee)).getMock();
+		}
+	
+	
+	
+	
 	//Working
 		@Test
 		public void deleteEmployeeByIdTest()
