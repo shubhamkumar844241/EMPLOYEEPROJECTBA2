@@ -63,15 +63,16 @@ public class EmployeeApplicationTests {
 	
 	
 	
-	//Working
-		@Test
-		public void deleteEmployeeByIdTest()
-		{
-			Employee employee=new Employee(101l,"delhi","shubham",50000,20201l);
-			employeeservice.deleteEmployee(employee.getEmployeeId());
-			verify(employeeRepository,times(1)).deleteById(101l);
-		}
-		
+//	
+//		@Test
+//		public void deleteEmployeeByIdTest() throws Exception
+//		{
+//			Employee employee=new Employee(112l,"rajput","delhi",10000,20207l);
+//			employeeservice.deleteEmployee(employee.getEmployeeId());
+//        	verify(employeeRepository,times(1)).deleteById(102l);
+//		}	
+//	
+//	
 	
 	
 	
