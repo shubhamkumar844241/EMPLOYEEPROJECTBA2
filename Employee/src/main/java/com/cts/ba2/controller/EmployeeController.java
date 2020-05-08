@@ -87,5 +87,4 @@ public class EmployeeController {
 	public ResponseEntity<Object> fallBack3(@PathVariable("pid") Long pid){
 		return new ResponseEntity<>(employeeService.listOfEmployee(), HttpStatus.OK);
 	}
-
 }
