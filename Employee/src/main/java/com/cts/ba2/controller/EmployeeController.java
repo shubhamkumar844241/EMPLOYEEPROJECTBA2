@@ -22,13 +22,10 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 @RequestMapping("/employee")
 public class EmployeeController {
 	
-	
 	private Logger logger=LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	iEmployeeService employeeService;
-	
-	
 	
 	//to add employee data to the database
 	@PostMapping()
@@ -38,8 +35,6 @@ public class EmployeeController {
 			return new ResponseEntity<>("Employee is added successfully", HttpStatus.CREATED);
 		}
 	
-	
-	
 	//to get the list of employee from database
 	@GetMapping()
 	@HystrixCommand(fallbackMethod="fallBack1")
@@ -47,8 +42,6 @@ public class EmployeeController {
 		logger.info("{}",employeeService.listOfEmployee());
 		return new ResponseEntity<>(employeeService.listOfEmployee(), HttpStatus.OK);
 	}
-	
-	
 	
 	//to get the employee detail using employee id
 	@GetMapping("/{id}")
@@ -58,8 +51,6 @@ public class EmployeeController {
 		return new ResponseEntity<>(employeeService.getEmployeeById(id), HttpStatus.OK);
 	}
 	
-	
-	
 	//to update the employee detail using its id
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> updateEmployee(@PathVariable("id") Long id, @RequestBody Employee employee) {
@@ -67,8 +58,6 @@ public class EmployeeController {
 	      employeeService.updateEmployee(id, employee);
 	      return new ResponseEntity<>(employeeService.updateEmployee(id, employee), HttpStatus.OK);
 	 }
-	
-	
 	
 	//to delete the employee detail using its id 
 	@DeleteMapping("/{id}")
@@ -82,10 +71,9 @@ public class EmployeeController {
 	@GetMapping("/projectId/{pid}")
 	@HystrixCommand(fallbackMethod="fallBack3")
 	public ResponseEntity<Object> allEmployeeWithProjectId(@PathVariable("pid") Long pid) {
-		logger.info("{}",employeeService.allEmployeeWithProjectId(pid)	);
+		logger.info("{}",employeeService.allEmployeeWithProjectId(pid));
 		return new ResponseEntity<>(employeeService.allEmployeeWithProjectId(pid),HttpStatus.OK);
 	}
-	
 	
 	public ResponseEntity<Object> fallBack1(){
 		return new ResponseEntity<>(employeeService.listOfEmployee(), HttpStatus.OK);
