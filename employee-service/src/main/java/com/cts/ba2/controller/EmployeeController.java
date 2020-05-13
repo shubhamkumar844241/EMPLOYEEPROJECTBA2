@@ -7,6 +7,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.cts.ba2.logger.GlobalResource;
 import com.cts.ba2.model.Employee;
 import com.cts.ba2.service.IEmployeeService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -30,7 +29,7 @@ public class EmployeeController {
 	
 
 	//get logger variable
-	private Logger logger = GlobalResource.getLogger(EmployeeController.class);
+	private Logger logger = LoggerFactory.getLogger(EmployeeController.class);
 	
 	List<Employee> listEmployee;
 

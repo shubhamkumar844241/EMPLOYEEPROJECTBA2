@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cts.ba2.exception.ProjectNotFoundException;
-import com.cts.ba2.logger.GlobalResource;
 import com.cts.ba2.model.Project;
 import com.cts.ba2.repository.ProjectRepository;
 
@@ -18,7 +18,7 @@ import com.cts.ba2.repository.ProjectRepository;
 public class ProjectServiceImpl implements IProjectService{
 	
 	//get logger variable
-	private Logger logger = GlobalResource.getLogger(ProjectServiceImpl.class);
+	private Logger logger = LoggerFactory.getLogger(ProjectServiceImpl.class);
 		
 	@Autowired
 	ProjectRepository projectRepository;

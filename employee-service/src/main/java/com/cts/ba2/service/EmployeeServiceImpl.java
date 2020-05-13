@@ -4,11 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cts.ba2.exception.EmployeeNotFoundException;
-import com.cts.ba2.logger.GlobalResource;
 import com.cts.ba2.model.Employee;
 import com.cts.ba2.repository.EmployeeRepository;
 
@@ -16,7 +15,7 @@ import com.cts.ba2.repository.EmployeeRepository;
 public class EmployeeServiceImpl implements IEmployeeService{
 	
 	//get logger variable
-	private Logger logger = GlobalResource.getLogger(EmployeeServiceImpl.class);
+	private Logger logger = LoggerFactory.getLogger(EmployeeServiceImpl.class);
 		
 	@Autowired
 	EmployeeRepository employeeRepository;
