@@ -20,8 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	// Authorization : mention which role can access which URL
 	protected void configure(HttpSecurity http) throws Exception
 	{
-		http.httpBasic().and().authorizeRequests().antMatchers("/userlogin").hasRole("USER")
-				.antMatchers("/adminlogin").hasRole("ADMIN")
+		http.httpBasic().and().authorizeRequests()
 				.antMatchers("/employee/admin").hasRole("ADMIN")
 				.antMatchers("/employee/user").hasRole("USER")
 				.antMatchers("/project/user").hasRole("USER")
