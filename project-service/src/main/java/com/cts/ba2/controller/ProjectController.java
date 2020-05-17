@@ -20,7 +20,6 @@ import com.cts.ba2.service.IProjectService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
-@RequestMapping("/project")
 public class ProjectController {
 	
 	//get logger variable
@@ -32,7 +31,7 @@ public class ProjectController {
 	
 	
 	//to add project detail
-	@PostMapping()
+	@PostMapping("/admin")
 	public ResponseEntity<Object> addProject(@Valid @RequestBody Project project) {
 		
 		//loging
@@ -46,7 +45,7 @@ public class ProjectController {
 	
 	
 	//to get list of project
-	@GetMapping()
+	@GetMapping("/user")
 	@HystrixCommand(fallbackMethod="listOfProject_Fallback")
 	public ResponseEntity<Object> listOfProject(){
 		
@@ -60,7 +59,7 @@ public class ProjectController {
 	
 	
 	//to get project detail using project project id
-	@GetMapping("/{id}")
+	@GetMapping("/user/{id}")
 	@HystrixCommand(fallbackMethod="getProjectById_Fallback")
 	public ResponseEntity<Object> getProjectById(@PathVariable("id") Long id) {
 		
@@ -74,7 +73,7 @@ public class ProjectController {
 	
 	
 	//to update project details using project id
-	@PutMapping("/{id}")
+	@PutMapping("/admin/{id}")
 	public ResponseEntity<Object> updateProject(@PathVariable("id") Long id, @Valid @RequestBody Project project) {
 	      
 		//loging
@@ -87,7 +86,7 @@ public class ProjectController {
 	
 	
 	//to delete project detail using project id
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/admin/{id}")
 	@HystrixCommand(fallbackMethod="deleteProject_Fallback")
 	public ResponseEntity<Object> deleteProject(@PathVariable("id") Long id) {
 		

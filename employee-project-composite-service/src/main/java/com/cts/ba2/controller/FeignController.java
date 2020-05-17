@@ -36,7 +36,7 @@ public class FeignController {
 	
 	
 	//to get the detail of employee and project to which that employee  tag to
-	@GetMapping("/employee/projectDetail/{id}")
+	@GetMapping("/user/projectDetail/{id}")
 	public EmployeeProject employeeWithProject(@PathVariable("id") Long id) {
 		
 		//loging
@@ -62,7 +62,7 @@ public class FeignController {
 	
 	
 	//to get the detail of project and list of all employee tag to that project
-	@GetMapping("/project/employeeDetails/{pid}")
+	@GetMapping("/user/employeeDetails/{pid}")
 	@HystrixCommand(fallbackMethod="projectWithEmployee_Fallback")
 	public ProjectEmployee projectWithEmployee(@PathVariable("pid") Long pid) {
 		
