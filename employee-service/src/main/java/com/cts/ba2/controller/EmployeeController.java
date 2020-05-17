@@ -24,7 +24,6 @@ import com.cts.ba2.service.IEmployeeService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
-@RequestMapping("/employee")
 public class EmployeeController {
 	
 
@@ -39,7 +38,7 @@ public class EmployeeController {
 	
 	
 	//to add employee data to the database
-	@PostMapping()
+	@PostMapping("/admin")
 	public ResponseEntity<Object> addEmployee(@Valid @RequestBody Employee employee) {
 		
 			//loging
@@ -53,7 +52,7 @@ public class EmployeeController {
 	
 	
 	//to get the list of employee from database
-	@GetMapping()
+	@GetMapping("/user")
 	@HystrixCommand(fallbackMethod="listOfEmployee_Fallback")
 	public ResponseEntity<Object> listOfEmployee(){
 		
@@ -67,7 +66,7 @@ public class EmployeeController {
 	
 	
 	//to get the employee detail using employee id
-	@GetMapping("/{id}")
+	@GetMapping("/user/{id}")
 	@HystrixCommand(fallbackMethod="getEmployeeById_Fallback")
 	public ResponseEntity<Object> getEmployeeById(@PathVariable("id") Long id) {
 		
@@ -81,7 +80,7 @@ public class EmployeeController {
 	
 	
 	//to update the employee detail using its id
-	@PutMapping("/{id}")
+	@PutMapping("admin/{id}")
 	public ResponseEntity<Object> updateEmployee(@PathVariable("id") Long id, @Valid @RequestBody Employee employee) {
 	      
 		//loging
@@ -95,7 +94,7 @@ public class EmployeeController {
 	
 	
 	//to delete the employee detail using its id 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/admin/{id}")
 	public ResponseEntity<Object> deleteEmployee(@PathVariable("id") Long id) {
 	      
 		//loging
@@ -107,7 +106,7 @@ public class EmployeeController {
 	
 	
 	//to get all employee details using project id
-	@GetMapping("/projectId/{pid}")
+	@GetMapping("/user/projectId/{pid}")
 	@HystrixCommand(fallbackMethod="allEmployeeWithProjectId_fallBack")
 	public ResponseEntity<Object> allEmployeeWithProjectId(@PathVariable("pid") Long pid) {
 		

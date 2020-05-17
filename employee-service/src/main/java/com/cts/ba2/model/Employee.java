@@ -34,7 +34,7 @@ public class Employee {
 	private String employeeAddress;
 	
 	@NotNull(message="employee sallary should not be null")
-	private int employeeSalary;
+	private int employeeSallary;
 	
 	@NotNull(message="project id shuold not be null")
 	private long projectId;

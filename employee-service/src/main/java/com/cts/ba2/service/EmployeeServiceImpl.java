@@ -81,7 +81,7 @@ public class EmployeeServiceImpl implements IEmployeeService{
 			Employee existingEmployee = employeeRepository.findById(id).get();
 			existingEmployee.setEmployeeAddress(employee.getEmployeeAddress());
 			existingEmployee.setEmployeeName(employee.getEmployeeName());
-			existingEmployee.setEmployeeSalary(employee.getEmployeeSalary());
+			existingEmployee.setEmployeeSallary(employee.getEmployeeSallary());
 			existingEmployee.setProjectId(employee.getProjectId());
 			
 			employeeRepository.save(existingEmployee);
